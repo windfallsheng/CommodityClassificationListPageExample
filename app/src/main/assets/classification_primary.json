@@ -1,0 +1,289 @@
+[
+  {
+    "pId": 1,
+    "cId": 0,
+    "name": "推荐分类",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 2,
+    "cId": 0,
+    "name": "京东超市",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 3,
+    "cId": 0,
+    "name": "国际品牌",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 4,
+    "cId": 0,
+    "name": "奢侈品",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 5,
+    "cId": 0,
+    "name": "海囤全球",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 6,
+    "cId": 0,
+    "name": "唯品会",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 7,
+    "cId": 0,
+    "name": "男装",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 8,
+    "cId": 0,
+    "name": "女装",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 9,
+    "cId": 0,
+    "name": "男鞋",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 10,
+    "cId": 0,
+    "name": "女鞋",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 11,
+    "cId": 0,
+    "name": "内衣配饰",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 12,
+    "cId": 0,
+    "name": "箱包手袋",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 13,
+    "cId": 0,
+    "name": "美妆护肤",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 14,
+    "cId": 0,
+    "name": "个护清洁",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 15,
+    "cId": 0,
+    "name": "钟表珠宝",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 16,
+    "cId": 0,
+    "name": "手机数码",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 17,
+    "cId": 0,
+    "name": "电脑办公",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 18,
+    "cId": 0,
+    "name": "家用电器",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 19,
+    "cId": 0,
+    "name": "食品生鲜",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 20,
+    "cId": 0,
+    "name": "酒水饮料",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 21,
+    "cId": 0,
+    "name": "母婴童装",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 22,
+    "cId": 0,
+    "name": "玩具乐器",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 23,
+    "cId": 0,
+    "name": "医药保健",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 24,
+    "cId": 0,
+    "name": "计生情趣",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 25,
+    "cId": 0,
+    "name": "运动户外",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 26,
+    "cId": 0,
+    "name": "汽车生活",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 27,
+    "cId": 0,
+    "name": "家居厨具",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 28,
+    "cId": 0,
+    "name": "家具家装",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 29,
+    "cId": 0,
+    "name": "礼品鲜花",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 30,
+    "cId": 0,
+    "name": "宠物生活",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 31,
+    "cId": 0,
+    "name": "生活旅行",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 32,
+    "cId": 0,
+    "name": "图书文娱",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 33,
+    "cId": 0,
+    "name": "艺术邮币",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 34,
+    "cId": 0,
+    "name": "农资园艺",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 35,
+    "cId": 0,
+    "name": "特产馆",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 36,
+    "cId": 0,
+    "name": "京东金融",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 37,
+    "cId": 0,
+    "name": "拍卖",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 38,
+    "cId": 0,
+    "name": "房产",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 39,
+    "cId": 0,
+    "name": "二手商品",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 40,
+    "cId": 0,
+    "name": "京东服务",
+    "iconUrl": "",
+    "subclassificationList": []
+  },
+  {
+    "pId": 41,
+    "cId": 0,
+    "name": "工业品",
+    "iconUrl": "",
+    "subclassificationList": []
+  }
+]
