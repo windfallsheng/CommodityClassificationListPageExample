@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF"
     tools:context=".CommodityClassificationFragment">
 
     <LinearLayout
@@ -21,6 +22,7 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerview_secondary"
+            android:layout_marginLeft="10dp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="10"

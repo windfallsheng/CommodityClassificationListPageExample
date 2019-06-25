@@ -1,6 +1,7 @@
 package com.example.commodityclassification;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -96,6 +97,8 @@ public class PrimaryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             case 1: {
                 PrimaryViewHolder commodityHolder = (PrimaryViewHolder) holder;
                 String name = classificationEntity.getName();
+//                commodityHolder.tvName.setTextSize(17);
+//                commodityHolder.tvName.setTextColor(Color.BLACK);
                 commodityHolder.tvName.setText(name);
                 if (mClickedPosition == position){
                     commodityHolder.bgItem.setBackground(mContext.getResources().getDrawable(R.drawable.shape_checked));

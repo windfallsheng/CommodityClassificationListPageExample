@@ -2,14 +2,22 @@ package com.example.commodityclassification;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.GridLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.GridLayoutAnimationController;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.Transformer;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -23,7 +31,6 @@ public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context mContext;
     private List<CommodityClassificationEntity> mClassificationList;
     private OnRecyclerViewItemClick mOnRecyclerViewItemClick;
-    private int mClickedPosition;
 
     public SubAdapter(Context context) {
         this.mContext = context;
@@ -39,17 +46,12 @@ public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         mOnRecyclerViewItemClick = onRecyclerViewItemClick;
     }
 
-    public void setClickedPosition(int clickedPosition) {
-        mClickedPosition = clickedPosition;
-    }
-
     @Override
     public int getItemViewType(int position) {
         if (mClassificationList != null && mClassificationList.size() > 0) {
             CommodityClassificationEntity classificationEntity = mClassificationList.get(position);
-            if (classificationEntity.getcId() == 0) {
-                return ITEM_VIEW_TYPE_PRIMARY;
-            }
+            int type = classificationEntity.getType();
+            return type;
         }
         return 0;
     }
@@ -64,8 +66,11 @@ public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 //                return new PrimaryViewHolder(
 //                        LayoutInflater.from(mContext).inflate(R.layout.item_recycler_primary_classification, parent, false));
             case 2:
+                return new BannerListHolder(
+                        LayoutInflater.from(mContext).inflate(R.layout.item_sub_banner_list, parent, false));
+            case 3:
                 return new GridNormalHolder(
-                        LayoutInflater.from(mContext).inflate(R.layout.item_sub_grid_normal, parent, false));
+                        LayoutInflater.from(mContext).inflate(R.layout.item_sub_grid_normal_temp, parent, false));
             /*case 3:
                 return new CategoryNevViewHolder(
                         LayoutInflater.from(mContext).inflate(R.layout.rv_item_commodity_category_navigation, parent, false));
@@ -99,25 +104,54 @@ public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 //                }
 //            }
 //            break;
-//            case 2: {
-//                PrimaryViewHolder commodityHolder = (PrimaryViewHolder) holder;
-//
-//            }
-//            break;
-            case 3: {
-                CategoryNevViewHolder categoryNevHolder = (CategoryNevViewHolder) holder;
-//                List<ColorItem> items = DemoData.loadDemoColorItems(mContext);
-//                Collections.sort(items, new Comparator<ColorItem>() {
+            case 2: {
+                BannerListHolder bannerListHolder = (BannerListHolder) holder;
+                // 设置数据
+//                bannerListHolder.banner.setPages(list, new MZHolderCreator<BannerViewHolder>() {
 //                    @Override
-//                    public int compare(ColorItem lhs, ColorItem rhs) {
-//                        return lhs.name.compareTo(rhs.name);
+//                    public BannerViewHolder createViewHolder() {
+//                        return new BannerViewHolder();
 //                    }
 //                });
-//
-//                DemoColorPagerAdapter adapter = new DemoColorPagerAdapter();
-//                adapter.addAll(items);
-//                categoryNevHolder.vp.setAdapter(adapter);
-//                categoryNevHolder.tabLayout.setUpWithViewPager(categoryNevHolder.vp);
+                String[] urls = mContext.getResources().getStringArray(R.array.url);
+                List list = Arrays.asList(urls);
+                List<String> images = new ArrayList(list);
+                //设置banner样式
+//                bannerListHolder.banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
+                //设置图片加载器
+                bannerListHolder.banner.setImageLoader(new GlideImageLoader());
+                //设置图片集合
+                bannerListHolder.banner.setImages(images);
+                //设置banner动画效果
+                bannerListHolder.banner.setBannerAnimation(Transformer.DepthPage);
+                //设置标题集合（当banner样式有显示title时）
+//                bannerListHolder.banner.setBannerTitles(titles);
+                //设置自动轮播，默认为true
+                bannerListHolder.banner.isAutoPlay(true);
+                //设置轮播时间
+                bannerListHolder.banner.setDelayTime(1500);
+                //设置指示器位置（当banner模式中有指示器时）
+                bannerListHolder.banner.setIndicatorGravity(BannerConfig.CENTER);
+                //banner设置方法全部调用完毕时最后调用
+                bannerListHolder.banner.start();
+
+            }
+            break;
+            case 3: {
+                GridNormalHolder commodityHolder = (GridNormalHolder) holder;
+                commodityHolder.tvTitle.setText(classificationEntity.getName());
+                List<CommodityClassificationEntity> subclassificationList = classificationEntity.getSubclassificationList();
+                for (int i = 0; i < subclassificationList.size(); i++) {
+                    View view = LayoutInflater.from(mContext).inflate(R.layout.item_grid, null);
+                    CommodityClassificationEntity classification = subclassificationList.get(i);
+                    ImageView ivIcon = view.findViewById(R.id.imageview_icon);
+                    TextView tvName = view.findViewById(R.id.textview_name);
+                    ivIcon.setImageDrawable(mContext.getResources().getDrawable(R.mipmap.ic_launcher));
+                    tvName.setText(classification.getName());
+                    // 添加item
+                    commodityHolder.gridLayout.addView(view);
+                }
+
             }
             break;
             default:
@@ -131,7 +165,7 @@ public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         if (mClassificationList != null && mClassificationList.size() > 0) {
             return mClassificationList.size();
         }
-        return 0;
+        return 1;
     }
 
     class UnknowViewHolder extends RecyclerView.ViewHolder {
@@ -149,15 +183,15 @@ public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     class GridNormalHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        RelativeLayout bgItem;
-        TextView tvName;
+        GridLayout gridLayout;
+        TextView tvTitle;
 
         GridNormalHolder(View itemView) {
             super(itemView);
             itemView.setTag(false);
-            bgItem = (RelativeLayout) itemView.findViewById(R.id.relativelayout_bg_item);
-            tvName = (TextView) itemView.findViewById(R.id.textview_name);
-            bgItem.setOnClickListener(this);
+            gridLayout = (GridLayout) itemView.findViewById(R.id.grid_layout);
+            tvTitle = (TextView) itemView.findViewById(R.id.textview_title);
+//            bgItem.setOnClickListener(this);
         }
 
         @Override
@@ -168,50 +202,40 @@ public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-    class CategoryViewHolder extends RecyclerView.ViewHolder {
-        ImageView ivIcon;
-        TextView tvName;
-        TextView tvDesc;
+    class BannerListHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        Banner banner;
+//        MZBannerView banner;
 
-        CategoryViewHolder(View itemView) {
+        BannerListHolder(View itemView) {
             super(itemView);
             itemView.setTag(false);
-//            ivIcon = (ImageView) itemView.findViewById(R.id.imageview_head_icon);
-//            tvName = (TextView) itemView.findViewById(R.id.textview_chat_name);
-//            tvDesc = (TextView) itemView.findViewById(R.id.textview_last_msg_content);
+//            banner = (MZBannerView) itemView.findViewById(R.id.banner);
+            banner = (Banner) itemView.findViewById(R.id.banner);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (mOnRecyclerViewItemClick != null) {
+                mOnRecyclerViewItemClick.onItemClick(v, getAdapterPosition());
+            }
         }
     }
 
-    class CategoryNevViewHolder extends RecyclerView.ViewHolder {
-        ViewPager vp;
-        ImageView ivIcon;
-        TextView tvName;
-        TextView tvDesc;
-
-        CategoryNevViewHolder(View itemView) {
-            super(itemView);
-            itemView.setTag(true);
-//            vp = (ViewPager) itemView.findViewById(R.id.view_pager);
-//            tabLayout = (RecyclerTabLayout) itemView.findViewById(R.id.recycler_tab_layout);
-
-//            ivIcon = (ImageView) itemView.findViewById(R.id.imageview_head_icon);
-//            tvName = (TextView) itemView.findViewById(R.id.textview_chat_name);
-//            tvDesc = (TextView) itemView.findViewById(R.id.textview_last_msg_content);
+    /*public static class BannerViewHolder implements MZViewHolder<Integer> {
+        private ImageView mImageView;
+        @Override
+        public View createView(Context context) {
+            // 返回页面布局
+            View view = LayoutInflater.from(context).inflate(R.layout.banner_item,null);
+            mImageView = (ImageView) view.findViewById(R.id.banner_image);
+            return view;
         }
-    }
 
-    class CategoryVpViewHolder extends RecyclerView.ViewHolder {
-        ViewPager vp;
-        TextView tvName;
-        TextView tvDesc;
-
-        CategoryVpViewHolder(View itemView) {
-            super(itemView);
-            itemView.setTag(false);
-//            ivIcon = (ImageView) itemView.findViewById(R.id.imageview_head_icon);
-//            tvName = (TextView) itemView.findViewById(R.id.textview_chat_name);
-//            tvDesc = (TextView) itemView.findViewById(R.id.textview_last_msg_content);
+        @Override
+        public void onBind(Context context, int position, Integer data) {
+            // 数据绑定
+            mImageView.setImageResource(data);
         }
-    }
+    }*/
 
 }

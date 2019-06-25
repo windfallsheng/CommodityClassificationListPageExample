@@ -3,7 +3,7 @@
     "pId": 1002001,
     "cId": 1,
     "type": 2,
-    "name": "推荐分类",
+    "name": "轮播广告",
     "iconUrl": "",
     "subclassificationList": [
       {
@@ -54,7 +54,7 @@
     "pId": 1002002,
     "cId": 1,
     "type": 3,
-    "name": "京东超市",
+    "name": "专场推荐",
     "iconUrl": "",
     "subclassificationList": [
       {
@@ -102,35 +102,54 @@
     ]
   },
   {
-    "pId": 1002003,
+    "pId": 1002002,
     "cId": 1,
-    "type": 2,
-    "name": "国际品牌",
+    "type": 3,
+    "name": "热门分类",
     "iconUrl": "",
-    "subclassificationList": []
-  },
-  {
-    "pId": 1002004,
-    "cId": 1,
-    "type": 2,
-    "name": "奢侈品",
-    "iconUrl": "",
-    "subclassificationList": []
-  },
-  {
-    "pId": 1002005,
-    "cId": 1,
-    "type": 2,
-    "name": "海囤全球",
-    "iconUrl": "",
-    "subclassificationList": []
-  },
-  {
-    "pId": 1002006,
-    "cId": 1,
-    "type": 2,
-    "name": "唯品会",
-    "iconUrl": "",
-    "subclassificationList": []
+    "subclassificationList": [
+      {
+        "pId": 1003001,
+        "cId": 1002002,
+        "name": "推荐分类",
+        "iconUrl": "",
+        "subclassificationList": []
+      },
+      {
+        "pId": 1003002,
+        "cId": 1002002,
+        "name": "京东超市",
+        "iconUrl": "",
+        "subclassificationList": []
+      },
+      {
+        "pId": 1003003,
+        "cId": 1002002,
+        "name": "国际品牌",
+        "iconUrl": "",
+        "subclassificationList": []
+      },
+      {
+        "pId": 1003004,
+        "cId": 1002002,
+        "name": "奢侈品",
+        "iconUrl": "",
+        "subclassificationList": []
+      },
+      {
+        "pId": 1003005,
+        "cId": 1002002,
+        "name": "海囤全球",
+        "iconUrl": "",
+        "subclassificationList": []
+      },
+      {
+        "pId": 1003006,
+        "cId": 1002002,
+        "name": "唯品会",
+        "iconUrl": "",
+        "subclassificationList": []
+      }
+    ]
   }
 ]

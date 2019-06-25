@@ -106,9 +106,14 @@ public class CommodityClassificationFragment extends Fragment {
         final PrimaryAdapter primaryAdapter = new PrimaryAdapter(getActivity(), primaryList);
         mRecyclerViewPrimary.setAdapter(primaryAdapter);
         final SubAdapter subAdapter = new SubAdapter(getActivity());
+        CommodityClassificationEntity classificationEntity = primaryList.get(0);
+        List<CommodityClassificationEntity> subclassificationList = classificationEntity.getSubclassificationList();
+        if (subclassificationList == null || subclassificationList.size() == 0) {
+            subclassificationList = parseSubJson();
+            classificationEntity.setSubclassificationList(subclassificationList);
+        }
+        subAdapter.setClassificationList(subclassificationList);
         mRecyclerViewSecondary.setAdapter(subAdapter);
-
-        final List<CommodityClassificationEntity> subList = parseSubJson();
 
         primaryAdapter.setOnRecyclerViewItemClick(new OnRecyclerViewItemClick() {
             @Override
@@ -118,21 +123,19 @@ public class CommodityClassificationFragment extends Fragment {
                 Log.d(TAG, "method:onItemClick#点击的分类名称为：" + classificationEntity.getName());
                 primaryAdapter.setClickedPosition(position);
                 primaryAdapter.notifyDataSetChanged();
-
-                List<CommodityClassificationEntity> subclassificationList = classificationEntity.getSubclassificationList();
-                if (subclassificationList == null) {
-                    List<CommodityClassificationEntity> subList = parseSubJson();
-                    classificationEntity.setSubclassificationList(subList);
-                }
-                List<CommodityClassificationEntity> subList1 = classificationEntity.getSubclassificationList();
-                subAdapter.setClassificationList(subList1);
-//                subAdapter.notifyDataSetChanged();
-
                 int height = mRecyclerViewPrimary.getHeight();
                 Log.d(TAG, "method:onItemClick#RecyclerView_height=" + height);
                 Log.d(TAG, "method:onItemClick#childView_height=" + childView.getHeight());
                 int firstVisibleItemPosition = linearLayoutManagerPrimary.findFirstVisibleItemPosition();
                 scrollToMiddleVertical(childView, position, firstVisibleItemPosition);
+
+                List<CommodityClassificationEntity> subclassificationList = classificationEntity.getSubclassificationList();
+                if (subclassificationList == null || subclassificationList.size() == 0) {
+                    subclassificationList = parseSubJson();
+                    classificationEntity.setSubclassificationList(subclassificationList);
+                }
+                subAdapter.setClassificationList(subclassificationList);
+                subAdapter.notifyDataSetChanged();
             }
         });
 
