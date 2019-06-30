@@ -91,13 +91,6 @@
         "name": "海囤全球",
         "iconUrl": "",
         "subclassificationList": []
-      },
-      {
-        "pId": 1003006,
-        "cId": 1002001,
-        "name": "唯品会",
-        "iconUrl": "",
-        "subclassificationList": []
       }
     ]
   },
@@ -147,6 +140,43 @@
         "pId": 1003006,
         "cId": 1002002,
         "name": "唯品会",
+        "iconUrl": "",
+        "subclassificationList": []
+      }
+    ]
+  },
+  {
+    "pId": 1002002,
+    "cId": 1,
+    "type": 3,
+    "name": "国际名牌",
+    "iconUrl": "",
+    "subclassificationList": [
+      {
+        "pId": 1003001,
+        "cId": 1002002,
+        "name": "推荐分类",
+        "iconUrl": "",
+        "subclassificationList": []
+      },
+      {
+        "pId": 1003002,
+        "cId": 1002002,
+        "name": "京东超市",
+        "iconUrl": "",
+        "subclassificationList": []
+      },
+      {
+        "pId": 1003003,
+        "cId": 1002002,
+        "name": "国际品牌",
+        "iconUrl": "",
+        "subclassificationList": []
+      },
+      {
+        "pId": 1003004,
+        "cId": 1002002,
+        "name": "奢侈品",
         "iconUrl": "",
         "subclassificationList": []
       }

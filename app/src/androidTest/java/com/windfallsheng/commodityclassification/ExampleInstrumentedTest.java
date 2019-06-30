@@ -1,4 +1,4 @@
-package com.example.commodityclassification;
+package com.windfallsheng.commodityclassification;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

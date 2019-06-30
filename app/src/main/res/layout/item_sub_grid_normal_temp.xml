@@ -4,27 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="5dp"
     android:background="@drawable/shape_conner">
 
     <TextView
         android:id="@+id/textview_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
         android:text="标题"
-        android:textStyle="bold"
-        android:textColor="#000"
-        android:layout_marginTop="5dp" />
+        android:textColor="#2E2D2D"
+        android:textSize="15dp"
+        android:textStyle="bold" />
 
     <android.support.v7.widget.GridLayout
         android:id="@+id/grid_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textview_title"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_margin="5dp"
         app:alignmentMode="alignBounds"
-        app:columnCount="4"
+        app:columnCount="3"
         app:orientation="horizontal"
         app:rowCount="5"
         app:useDefaultMargins="false">
@@ -200,4 +201,5 @@
      -->
 
     </android.support.v7.widget.GridLayout>
+
 </RelativeLayout>

@@ -7,18 +7,20 @@
 
     <ImageView
         android:id="@+id/imageview_icon"
-        android:layout_width="60dp"
-        android:layout_height="50dp"
-        android:src="@color/colorPrimary"
-        android:scaleType="centerCrop" />
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="5dp"
+        android:src="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/textview_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
         android:text="00"
-        android:textStyle="bold"
-        android:textColor="#000"
-        android:textSize="13dp"/>
+        android:textColor="#2E2D2D"
+        android:textSize="13dp"
+        android:textStyle="bold" />
 </LinearLayout>

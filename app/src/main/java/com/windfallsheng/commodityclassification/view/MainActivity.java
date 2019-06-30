@@ -1,15 +1,14 @@
-package com.example.commodityclassification;
+package com.windfallsheng.commodityclassification.view;
 
-import android.net.Uri;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Window;
-import android.view.WindowManager;
 
-public class MainActivity extends AppCompatActivity implements CommodityClassificationFragment.OnFragmentInteractionListener {
+import com.windfallsheng.commodityclassification.R;
+
+
+public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -27,8 +26,4 @@ public class MainActivity extends AppCompatActivity implements CommodityClassifi
         fragmentTransaction.commit();
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-        Log.d(TAG, "method:onFragmentInteraction#uri=" + uri);
-    }
 }

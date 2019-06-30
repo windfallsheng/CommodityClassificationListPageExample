@@ -1,17 +1,18 @@
-package com.example.commodityclassification;
+package com.windfallsheng.commodityclassification.adapter;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.GridLayoutAnimationController;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.windfallsheng.commodityclassification.R;
+import com.windfallsheng.commodityclassification.imageloader.GlideImageLoader;
+import com.windfallsheng.commodityclassification.listener.OnRecyclerViewItemClick;
+import com.windfallsheng.commodityclassification.entity.CommodityClassificationEntity;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -31,6 +32,7 @@ public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context mContext;
     private List<CommodityClassificationEntity> mClassificationList;
     private OnRecyclerViewItemClick mOnRecyclerViewItemClick;
+    private int[] iconArry = {R.mipmap.aaa, R.mipmap.aab,R.mipmap.aac,R.mipmap.aad,R.mipmap.aae,R.mipmap.aaf};
 
     public SubAdapter(Context context) {
         this.mContext = context;
@@ -117,7 +119,7 @@ public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 List list = Arrays.asList(urls);
                 List<String> images = new ArrayList(list);
                 //设置banner样式
-//                bannerListHolder.banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
+//                bannerListHolder.banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
                 //设置图片加载器
                 bannerListHolder.banner.setImageLoader(new GlideImageLoader());
                 //设置图片集合
@@ -142,11 +144,16 @@ public class SubAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 commodityHolder.tvTitle.setText(classificationEntity.getName());
                 List<CommodityClassificationEntity> subclassificationList = classificationEntity.getSubclassificationList();
                 for (int i = 0; i < subclassificationList.size(); i++) {
+                    GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
+                    layoutParams.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1, 1.0f);
+                    layoutParams.rowSpec = GridLayout.spec(GridLayout.UNDEFINED, 1, 1.0f);
                     View view = LayoutInflater.from(mContext).inflate(R.layout.item_grid, null);
+                    view.setLayoutParams(layoutParams);
                     CommodityClassificationEntity classification = subclassificationList.get(i);
+                    int p = i % iconArry.length;
                     ImageView ivIcon = view.findViewById(R.id.imageview_icon);
                     TextView tvName = view.findViewById(R.id.textview_name);
-                    ivIcon.setImageDrawable(mContext.getResources().getDrawable(R.mipmap.ic_launcher));
+                    ivIcon.setImageDrawable(mContext.getResources().getDrawable(iconArry[p]));
                     tvName.setText(classification.getName());
                     // 添加item
                     commodityHolder.gridLayout.addView(view);

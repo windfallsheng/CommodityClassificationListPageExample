@@ -1,4 +1,4 @@
-package com.example.commodityclassification;
+package com.windfallsheng.commodityclassification.entity;
 
 import java.util.List;
 

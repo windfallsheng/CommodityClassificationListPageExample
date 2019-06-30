@@ -11,6 +11,9 @@
         android:width="0.1dp"
         android:color="#ffffffff"
         />-->
-    <solid android:color="#F2F2F2" />
-    <corners android:radius="5dp"/>
+    <stroke
+        android:width="0.5dp"
+        android:color="#F6F6F6" />
+    <solid android:color="#FFF" />
+    <corners android:radius="5dp" />
 </shape>

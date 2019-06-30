@@ -16,6 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:textColor="#9D9D9D"
             android:textSize="16dp"
             android:text="Hello World!" />
 

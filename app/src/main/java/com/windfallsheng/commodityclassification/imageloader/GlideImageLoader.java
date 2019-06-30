@@ -1,7 +1,6 @@
-package com.example.commodityclassification;
+package com.windfallsheng.commodityclassification.imageloader;
 
 import android.content.Context;
-import android.net.Uri;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;

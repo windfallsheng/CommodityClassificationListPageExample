@@ -1,4 +1,4 @@
-package com.example.commodityclassification;
+package com.windfallsheng.commodityclassification;
 
 import org.junit.Test;
 
